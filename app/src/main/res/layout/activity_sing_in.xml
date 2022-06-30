@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".SingUpActivity">
+    tools:context=".SingInActivity">
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/input_email"
@@ -45,35 +45,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_email" />
 
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/input_senha"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="28dp"
-        android:hint="@string/confirmar_senha"
-        android:inputType="textPassword"
-        android:paddingStart="18dp"
-        android:paddingEnd="18dp"
+    <TextView
+        android:id="@+id/Recuperar_senha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/recuperar_a_senha"
         android:textColor="@color/white"
-        android:textColorHint="@color/txt_input"
-        android:background="@drawable/bg_input_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/input_confirmar_senha"
         app:layout_constraintTop_toBottomOf="@+id/input_confirmar_senha" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_cadastrar"
+        android:id="@+id/btn_entrar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="73dp"
         android:layout_marginEnd="28dp"
         android:background="@drawable/bg_button"
-        android:text="@string/cadastrar"
+        android:text="@string/entrar"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="18sp"
@@ -81,23 +72,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_senha" />
+        app:layout_constraintTop_toBottomOf="@+id/input_confirmar_senha" />
 
     <TextView
-        android:id="@+id/txt_conectar_conta"
-        android:layout_width="match_parent"
+        android:id="@+id/Registrar_conta"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="32dp"
-        android:text="@string/conecte_se"
-        android:textAlignment="center"
+        android:layout_marginTop="36dp"
+        android:text="@string/registre_se"
         android:textColor="@color/white"
-        android:textSize="16sp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_cadastrar" />
-
+        app:layout_constraintTop_toBottomOf="@+id/btn_entrar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

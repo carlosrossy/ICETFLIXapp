@@ -5,5 +5,10 @@
     <string name="cadastrar">Cadastrar</string>
     <string name="j_tem_uma_conta">Já tem uma conta?</string>
     <string name="confirmar_senha">Confirmar senha</string>
+    <string name="recuperar_a_senha">recuperar a senha?</string>
+    <string name="entrar">Entrar</string>
+    <string name="registre_se">Registre-se</string>
+    <string name="conecte_se">Conecte-se</string>
+    <string name="conta_criada">Conta criada com sucesso</string>
 
 </resources>
