@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/ICETFLIXapp/app/src/main/res/drawable/bg_button.xml" value="0.139" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/ICETFLIXapp/app/src/main/res/drawable/bg_input_text.xml" value="0.139" />
         <entry key="..\:/Users/carlo/AndroidStudioProjects/ICETFLIXapp/app/src/main/res/layout/activity_main.xml" value="0.2359375" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/ICETFLIXapp/app/src/main/res/layout/activity_sing_up.xml" value="0.2" />
         <entry key="..\:/Users/carlo/AndroidStudioProjects/ICETFLIXapp/app/src/main/res/layout/activity_splash.xml" value="0.1" />
       </map>
     </option>
