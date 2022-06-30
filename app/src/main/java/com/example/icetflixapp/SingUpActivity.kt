@@ -38,7 +38,7 @@ class SingUpActivity : AppCompatActivity() {
                             val intent = Intent(this,SingInActivity::class.java)
                             startActivity(intent)
                         }else{
-                            Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this,"Insira um email válido", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }else{

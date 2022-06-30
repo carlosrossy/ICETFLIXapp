@@ -44,5 +44,15 @@ class SingInActivity : AppCompatActivity() {
             }
         }
     }
+
+    override fun onStart(){
+        super.onStart()
+
+        if(firebaseAuth.currentUser != null){
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
 }
 
