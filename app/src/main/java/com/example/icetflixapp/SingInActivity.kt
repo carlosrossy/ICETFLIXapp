@@ -3,7 +3,6 @@ package com.example.icetflixapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
 import android.widget.Toast
 import com.example.icetflixapp.databinding.ActivitySingInBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -23,6 +22,11 @@ class SingInActivity : AppCompatActivity() {
             val navTela = Intent(this, SingUpActivity::class.java)
             startActivity(navTela)
         }
+        binding.RecuperarSenha.setOnClickListener{
+            val navTela = Intent(this, RecoverPasswordActivity::class.java)
+            startActivity(navTela)
+        }
+
         firebaseAuth = FirebaseAuth.getInstance()
 
         binding.btnEntrar.setOnClickListener{
