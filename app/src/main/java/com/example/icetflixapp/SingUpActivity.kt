@@ -1,11 +1,18 @@
 package com.example.icetflixapp
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.icetflixapp.databinding.ActivitySingUpBinding
+import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException
+import java.lang.Exception as Exception
 
 class SingUpActivity : AppCompatActivity() {
 
@@ -35,17 +42,35 @@ class SingUpActivity : AppCompatActivity() {
 
                     firebaseAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener{
                         if(it.isSuccessful){
+                            val snackbar= Snackbar.make(view,"Cadastro feito com sucesso!", Snackbar.LENGTH_SHORT)
+                            snackbar.setBackgroundTint(Color.GREEN)
+                            snackbar.show()
                             val intent = Intent(this,SingInActivity::class.java)
                             startActivity(intent)
-                        }else{
-                            Toast.makeText(this,"Insira um email válido", Toast.LENGTH_SHORT).show()
                         }
+
+                    }.addOnFailureListener{ exception ->
+
+                        val mensagemErro = when(exception){
+                            is FirebaseAuthWeakPasswordException -> "Digite uma senha com no mínimo 6 caracteres!"
+                            is FirebaseAuthInvalidCredentialsException -> "Insira um email válido!"
+                            is FirebaseAuthUserCollisionException -> "Esta conta ja foi cadastrada!"
+                            is FirebaseNetworkException -> "Sem conexão com a internet!"
+                            else -> "Erro ao cadastrar usuário!"
+                        }
+                        val snackbar= Snackbar.make(view,mensagemErro, Snackbar.LENGTH_SHORT)
+                        snackbar.setBackgroundTint(Color.RED)
+                        snackbar.show()
                     }
                 }else{
-                    Toast.makeText(this, "A senha não corresponde", Toast.LENGTH_SHORT).show()
+                    val snackbar= Snackbar.make(view,"As senhas não correspondem!", Snackbar.LENGTH_SHORT)
+                    snackbar.setBackgroundTint(Color.RED)
+                    snackbar.show()
                 }
             }else{
-                Toast.makeText(this, "Campos vazios não são permitidos !!", Toast.LENGTH_SHORT).show()
+                val snackbar= Snackbar.make(view,"Campos vazios não são permitidos!", Snackbar.LENGTH_SHORT)
+                snackbar.setBackgroundTint(Color.RED)
+                snackbar.show()
             }
         }
     }

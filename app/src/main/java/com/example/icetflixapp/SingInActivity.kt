@@ -1,11 +1,14 @@
 package com.example.icetflixapp
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.icetflixapp.databinding.ActivitySingInBinding
-import com.google.firebase.auth.FirebaseAuth
+import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.FirebaseNetworkException
+import com.google.firebase.auth.*
 
 class SingInActivity : AppCompatActivity() {
 
@@ -39,12 +42,22 @@ class SingInActivity : AppCompatActivity() {
                     if(it.isSuccessful){
                         val intent = Intent(this,MainActivity::class.java)
                         startActivity(intent)
-                    }else{
-                        Toast.makeText(this,"Usuario ou senha inválido", Toast.LENGTH_SHORT).show()
                     }
+
+                }.addOnFailureListener{ exception ->
+
+                    val mensagemErro = when(exception){
+                        is FirebaseNetworkException -> "Sem conexão com a internet!"
+                        else -> "Usuário ou senha inválido!"
+                    }
+                    val snackbar= Snackbar.make(view,mensagemErro, Snackbar.LENGTH_SHORT)
+                    snackbar.setBackgroundTint(Color.RED)
+                    snackbar.show()
                 }
             }else{
-                Toast.makeText(this, "Campos vazios não são permitidos !!", Toast.LENGTH_SHORT).show()
+                val snackbar= Snackbar.make(view,"Campos vazios não são permitidos!", Snackbar.LENGTH_SHORT)
+                snackbar.setBackgroundTint(Color.RED)
+                snackbar.show()
             }
         }
     }
