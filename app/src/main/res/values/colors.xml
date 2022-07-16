@@ -8,4 +8,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="txt_input">#8b8b8c</color>
+    <color name="green">#A8E063</color>
 </resources>

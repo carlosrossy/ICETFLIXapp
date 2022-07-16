@@ -1,9 +1,10 @@
 package com.example.icetflixapp
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import com.example.icetflixapp.databinding.ActivityRecoverPasswordBinding
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 
 class RecoverPasswordActivity : AppCompatActivity() {
@@ -25,13 +26,19 @@ class RecoverPasswordActivity : AppCompatActivity() {
             if(email.isNotEmpty()){
                 firebaseAuth.sendPasswordResetEmail(email).addOnCompleteListener{
                     if(it.isSuccessful){
-                        Toast.makeText(this,"verifique seu email", Toast.LENGTH_SHORT).show()
+                        val snackbar= Snackbar.make(view,"Verifique seu E-mail", Snackbar.LENGTH_SHORT)
+                        snackbar.setBackgroundTint(Color.GREEN)
+                        snackbar.show()
                     }else{
-                        Toast.makeText(this,"Ocorreu um erro", Toast.LENGTH_SHORT).show()
+                        val snackbar= Snackbar.make(view,"Ocorreu um erro", Snackbar.LENGTH_SHORT)
+                        snackbar.setBackgroundTint(Color.RED)
+                        snackbar.show()
                     }
                 }
             }else{
-                Toast.makeText(this, "Informe seu e-mail !!", Toast.LENGTH_SHORT).show()
+                val snackbar= Snackbar.make(view,"informe seu E-mail", Snackbar.LENGTH_SHORT)
+                snackbar.setBackgroundTint(Color.RED)
+                snackbar.show()
             }
         }
     }

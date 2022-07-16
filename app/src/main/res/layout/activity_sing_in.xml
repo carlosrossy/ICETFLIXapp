@@ -7,61 +7,137 @@
     android:background="@color/black"
     tools:context=".SingInActivity">
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/input_email"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="192dp"
-        android:layout_marginEnd="28dp"
-        android:hint="@string/e_mail"
-        android:inputType="textEmailAddress"
-        android:paddingStart="18dp"
-        android:paddingEnd="18dp"
+    <ImageView
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/logo_login"
+        app:layout_constraintBottom_toTopOf="@+id/input_email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/entre_com"
         android:textColor="@color/white"
-        android:textColorHint="@color/txt_input"
-        android:background="@drawable/bg_input_text"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_entrar" />
+
+    <ImageView
+        android:id="@+id/Facebook"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/facebook"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <ImageView
+        android:id="@+id/Google"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="64dp"
+        android:src="@drawable/google"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/Recuperar_senha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textStyle="bold"
+        android:text="@string/recuperar_a_senha"
+        android:textColor="@color/green"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/input_senha"
+        app:layout_constraintTop_toBottomOf="@+id/input_senha" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/input_senha"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="28dp"
+        android:background="@drawable/bg_input_text"
         android:hint="@string/senha"
         android:inputType="textPassword"
         android:paddingStart="18dp"
         android:paddingEnd="18dp"
         android:textColor="@color/white"
         android:textColorHint="@color/txt_input"
-        android:background="@drawable/bg_input_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_email" />
 
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/input_email"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="232dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/bg_input_text"
+        android:hint="@string/e_mail"
+        android:inputType="textEmailAddress"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/txt_input"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
-        android:id="@+id/Recuperar_senha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/recuperar_a_senha"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="56dp"
+        android:text="@string/n_o_tem_uma_conta"
         android:textColor="@color/white"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/input_senha"
-        app:layout_constraintTop_toBottomOf="@+id/input_senha" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/Registrar_conta"
+        app:layout_constraintStart_toStartOf="@+id/Google"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/Registrar_conta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="56dp"
+        android:text="@string/registre_se"
+        android:textColor="@color/green"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/Facebook"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="1.0" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_entrar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="73dp"
+        android:layout_marginTop="64dp"
         android:layout_marginEnd="28dp"
         android:background="@drawable/bg_button"
         android:text="@string/entrar"
@@ -73,17 +149,5 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_senha" />
-
-    <TextView
-        android:id="@+id/Registrar_conta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="@string/registre_se"
-        android:textColor="@color/white"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_entrar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

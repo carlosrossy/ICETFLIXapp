@@ -11,5 +11,13 @@
     <string name="conecte_se">Conecte-se</string>
     <string name="conta_criada">Conta criada com sucesso</string>
     <string name="enviar">Enviar</string>
+    <string name="n_o_tem_uma_conta">Não tem uma conta?</string>
+    <string name="button">Button</string>
+    <string name="entre_com">Entre com</string>
+    <string name="ja_tem_uma_conta">Já tem uma conta?</string>
+    <string name="ola">Olá!</string>
+    <string name="vamos_comecar">Vamos Começar</string>
+    <string name="esqueceu_sua_senha">Esqueceu sua senha?</string>
+    <string name="por_favor_insira_seu_email_cadastrado_na_plataforma_que_enviaremos_um_link_para_o_mesmo_com_as_instru_es_para_restaura_o_de_sua_senha">Por favor insira seu email cadastrado na plataforma que enviaremos um link para o mesmo com as instruções para restauração de sua senha</string>
 
 </resources>
