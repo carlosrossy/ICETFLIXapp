@@ -1,5 +1,6 @@
 package com.example.icetflixapp
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -26,11 +27,10 @@ class RecoverPasswordActivity : AppCompatActivity() {
             if(email.isNotEmpty()){
                 firebaseAuth.sendPasswordResetEmail(email).addOnCompleteListener{
                     if(it.isSuccessful){
-                        val snackbar= Snackbar.make(view,"Verifique seu E-mail", Snackbar.LENGTH_SHORT)
-                        snackbar.setBackgroundTint(Color.GREEN)
-                        snackbar.show()
+                        val intent = Intent(this,SuccessActivity::class.java)
+                        startActivity(intent)
                     }else{
-                        val snackbar= Snackbar.make(view,"Ocorreu um erro", Snackbar.LENGTH_SHORT)
+                        val snackbar= Snackbar.make(view,"Seu email não é cadastrado!", Snackbar.LENGTH_SHORT)
                         snackbar.setBackgroundTint(Color.RED)
                         snackbar.show()
                     }

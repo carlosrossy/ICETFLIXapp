@@ -19,6 +19,9 @@
             android:name=".RecoverPasswordActivity"
             android:exported="false" />
         <activity
+            android:name=".SuccessActivity"
+            android:exported="false" />
+        <activity
             android:name=".SingInActivity"
             android:exported="false" />
         <activity
