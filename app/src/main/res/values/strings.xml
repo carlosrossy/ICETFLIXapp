@@ -22,4 +22,6 @@
     <string name="seu_pedido_de_recupera_o_foi_feito_com_sucesso">Seu pedido de recuperação foi feito com sucesso!</string>
     <string name="enviamos_um_email_de_recupera_o_para_seu_email">Enviamos um email de recuperação para seu email.</string>
 
+    <string name="client_id">785810862708-qmv53adli814k8icul48pkf082cuiqp9.apps.googleusercontent.com</string>
+
 </resources>

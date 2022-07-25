@@ -1,11 +1,17 @@
 package com.example.icetflixapp
 
+import android.content.ContentProviderClient
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.example.icetflixapp.databinding.ActivitySingInBinding
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.*
@@ -21,6 +27,8 @@ class SingInActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        firebaseAuth = FirebaseAuth.getInstance()
+
         binding.RegistrarConta.setOnClickListener {
             val navTela = Intent(this, SingUpActivity::class.java)
             startActivity(navTela)
@@ -30,7 +38,6 @@ class SingInActivity : AppCompatActivity() {
             startActivity(navTela)
         }
 
-        firebaseAuth = FirebaseAuth.getInstance()
 
         binding.btnEntrar.setOnClickListener{
             val email = binding.inputEmail.text.toString()
