@@ -9,15 +9,15 @@ import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.RecyclerView
 import com.example.icetflixapp.model.Movie
 import com.example.icetflixapp.util.DownloadImageTask
-import com.squareup.picasso.Picasso
 
 class MovieAdapter(
-    private val movies : List<Movie>,
-    @LayoutRes private val layoutId : Int
-    ) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>(){
+    private val movies: List<Movie>,
+    @LayoutRes private val layoutId: Int,
+    private val onItemClickListener: ( (Int) -> Unit )? = null
+) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(layoutId,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(layoutId, parent, false)
         return MovieViewHolder(view)
     }
 
@@ -30,18 +30,22 @@ class MovieAdapter(
         return movies.size
     }
 
-    inner class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        fun bind(movie: Movie){
-            val imageCover : ImageView = itemView.findViewById(R.id.img_cover)
-            
-            DownloadImageTask(object : DownloadImageTask.Callback{
+    inner class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bind(movie: Movie) {
+            val imageCover: ImageView = itemView.findViewById(R.id.img_cover)
+            imageCover.setOnClickListener {
+                onItemClickListener?.invoke(movie.id)
+            }
+
+            DownloadImageTask(object : DownloadImageTask.Callback {
                 override fun onResult(bitmap: Bitmap) {
                     imageCover.setImageBitmap(bitmap)
                 }
             }).execute(movie.coverUrl)
-            //Picasso.get()
-                //.load(movie.coverUrl)
-                //.into(imageCover)
+
+//            Picasso.get()
+//                .load(movie.coverUrl)
+//                .into(imageCover)
         }
     }
 

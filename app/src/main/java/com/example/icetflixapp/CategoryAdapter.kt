@@ -3,6 +3,7 @@ package com.example.icetflixapp
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -10,7 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.icetflixapp.model.Category
 import com.example.icetflixapp.model.Movie
 
-    class CategoryAdapter(private val categories : List<Category>) : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>(){
+    class CategoryAdapter(
+        private val categories : List<Category>,
+        private val onItemClickListener: (Int) -> Unit
+        ) : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.category_item,parent,false)
@@ -33,7 +37,7 @@ import com.example.icetflixapp.model.Movie
 
             val rvCategory: RecyclerView = itemView.findViewById(R.id.rv_category)
             rvCategory.layoutManager = LinearLayoutManager(itemView.context, RecyclerView.HORIZONTAL, false)
-            rvCategory.adapter = MovieAdapter(category.movies, R.layout.movie_item)
+            rvCategory.adapter = MovieAdapter(category.movies, R.layout.movie_item, onItemClickListener)
         }
     }
 
