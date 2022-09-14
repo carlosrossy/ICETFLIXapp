@@ -38,7 +38,6 @@ class SingInActivity : AppCompatActivity() {
             startActivity(navTela)
         }
 
-
         binding.btnEntrar.setOnClickListener{
             val email = binding.inputEmail.text.toString()
             val pass = binding.inputSenha.text.toString()
